@@ -11,7 +11,7 @@ const knownModules = { DisplaySize, Toolbar, Resize };
  * (Works on Chrome, Edge, Safari and replaces Firefox's native resize behavior)
  * @see https://quilljs.com/blog/building-a-custom-module/
  */
-export default class ImageResize {
+export default class VideoResize {
 
     constructor(quill, options = {}) {
         // save the quill reference and options
@@ -82,7 +82,7 @@ export default class ImageResize {
     };
 
     handleClick = (evt) => {
-        if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG') {
+        if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IFRAME') {
             if (this.img === evt.target) {
                 // we are already focused on this image
                 return;
@@ -196,5 +196,5 @@ export default class ImageResize {
 }
 
 if (window.Quill) {
-    window.Quill.register('modules/imageResize', ImageResize);
+    window.Quill.register('modules/imageResize', VideoResize);
 }
